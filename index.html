@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <div class="brand">
+  <p>I Love Fishing! </p>
+</div>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Starter</title>
+  <link rel="stylesheet" href="css/modnorm.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+  <input type="checkbox" id="active">
+    <label for="active" class="menu-btn">&#9776</label>
+    <div class="wrapper">
+      <ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">wizard fax</a></li>
+<li><a href="#">buy the battle pass</a></li>
+<li><a href="#">I Don't Need Feedback</a></li>
+</ul>
+</div>
+  <main>
+ <!-- Container for the image gallery -->
+ <div class="container">
+
+  <!-- Full-width images with number text -->
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+      <img src="img/zafaria.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+      <img src="img/Celestia.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+      <img src="img/krokotopia.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+      <img src="img/grizzleheim800.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+      <img src="img/marley.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+      <img src="img/mooshu1152.jpg" style="width:100%">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  <!-- Image text -->
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <!-- Thumbnail images -->
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="img/zafaria.jpg" style="width:100%" onclick="currentSlide(1)" alt="Zoo people">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img/Celestia.jpg" style="width:100%" onclick="currentSlide(2)" alt="Fishies">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img/krokotopia.jpg" style="width:100%" onclick="currentSlide(3)" alt="Krokodiles">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img/grizzleheim800.jpg" style="width:100%" onclick="currentSlide(4)" alt="Furries">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img/marley.jpg" style="width:100%" onclick="currentSlide(5)" alt="Pedersen Dogs">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img/mooshu1152.jpg" style="width:100%" onclick="currentSlide(6)" alt="Japanese cow">
+    </div>
+  </div>
+</div> 
+    <section class="hero">
+      <h2>Hey you <em>Do you too wanna be a fishing wizard!</em></h2>
+      <p>Visit <a href="https://www.wizard101.com/">Wizard time</a> to become better than everyone.</p>
+    </section>
+    <section class="grid-cont">
+      <article class="card">
+        <img id="myImg" src="img/mullet.png" alt="Snow">
+        <h4>This feels copy and pasted</h4>
+        <p> Mullet Fish,
+          Shoshun Village, MS
+          1400 XP, 14 XP [2]</p>
+
+      </article><!--end article.card-->
+      <article class="card">
+        <img id="myImg" src="img/Pharaohmari.png" alt="Snow">
+        <h4>Wow can you belive the controversy</h4>
+        <p> Pharaohmari,
+          Upper Zigzag, KT
+          1600 XP, 16 XP [2]</p>
+
+      </article>
+      <article class="card">
+        <img id="myImg" src="img/Todd Pole.png" alt="Snow">
+        <h4>Damn wish I was there</h4>
+        <p> Todd Pole,
+          Northguard, GH
+          1400 XP, 14 XP [1]</p>
+
+      </article>
+      <article class="card">
+        <img id="myImg" src="img/royal gurnard.png" alt="Snow" >
+        <h4>Are they allowed to show that here?</h4>
+        <p> Royal Gurnard,
+          Barkingham Palace, MB
+          1700 XP, 17 XP [2]</p>
+
+      </article>
+      <!--
+        add more article.cards inside this section
+      -->
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy;2022 COPE</p>
+  </footer>
+  <script src="js/page.js"></script>
+</body>
+</html>

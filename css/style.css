@@ -1,0 +1,406 @@
+:root {/*-- sets color variables --*/
+  --dark: #b0ff48;
+  --ltmid: #39015a;
+  --dkmid: rgb(109, 0, 0);
+  --light: #300057;
+  --accent: #ff4dc9;
+  --back:  #dce7e2;
+}
+body {
+  color: var(--dark); /*-- sets body default font color --*/
+  line-height: 1.4; /*-- sets body default line height --*/
+}
+/*-- default styles for links (in the correct order) --*/
+a {color: var(--accent); font-weight: 500; text-decoration: none; transition: all .2s ease-in-out;}
+a:visited {color:#00ff40;}
+a:hover {color: var(--accent);}
+a:active {color: var(--dkmid);}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Oswald', sans-serif;
+}
+.wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  height: 100%;
+  width: 100%;
+  background: rgb(6, 255, 6);
+  clip-path: circle(25px at calc(100% - 45px) 45px);
+  transition: all 0.3s ease-in-out;
+}
+#active:checked ~ .wrapper{
+  clip-path: circle(75%);
+}
+.menu-btn{
+ user-select: none;
+  position: fixed;
+  z-index: 5;
+  right: 20px;
+  /* left: 20px; */
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  transition: all 0.3s ease-in-out;
+}
+#active:checked ~ .menu-btn{
+  color: rgb(0, 12, 180);
+}
+#active:checked ~ .menu-btn i:before{
+  content: "\f00d";
+}
+.wrapper ul{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+.wrapper ul li{
+  margin: 15px 0;
+}
+.wrapper ul li a{
+  color: none;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 5px 30px;
+  color: #fff;
+  border-radius: 50px;
+  background: #000;
+  position: relative;
+  line-height: 50px;
+  transition: all 0.3s ease;
+}
+.wrapper ul li a:after{
+  position: absolute;
+  content: "";
+  background: #fff;
+   background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+  /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+  width: 104%;
+  height: 110%;
+  left: -2%;
+  top: -5%; /* if the font is 'Oswald'*/
+  border-radius: 50px;
+  transform: scaleY(0);
+  z-index: -1;
+  animation: rotate 1.5s linear infinite;
+  transition: transform 0.3s ease;
+}
+.wrapper ul li a:hover:after{
+  transform: scaleY(1);
+}
+.wrapper ul li a:hover{
+  color: rgb(0, 102, 255);
+}
+input[type="checkbox"]{
+  display: none;
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  text-align: center;
+  width: 100%;
+  color: #202020;
+}
+.content .title{
+  font-size: 40px;
+  font-weight: 700;
+}
+.content p{
+  font-size: 35px;
+  font-weight: 600;
+}
+
+
+@keyframes rotate {
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }
+}
+
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+a.logo { /*-- nav link with .logo class --*/
+  flex-basis: 67%; /*-- makes the logo link take up most of the horizontal space --*/
+  text-transform: uppercase; /*-- makes logo link typographically distinct --*/
+  font-weight: 900; /*-- heaviest font weight --*/
+}
+a.trigram { /*-- hamburger menu icon nav link --*/
+  display: none; /*-- hidden by default --*/
+  font-size: 3rem; /*-- makes it considerably larger --*/
+  align-self: stretch; /*-- tells it to fill the cross axis when present --*/
+}
+main {
+  padding: 1rem 2rem; /*-- adds inside space around the main content area --*/
+}
+.hero {
+  padding: 4rem 0; /*-- top and bottom padding for the container --*/
+  display: flex; /*-- declares a flex container --*/
+  flex-direction: column; /*-- direction downward --*/
+  justify-content: center; /*-- vertical center --*/
+  align-items: center; /*-- horizontal center --*/
+  background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  width: 100vw; /*-- extra wide --*/
+  margin: 2rem 0 1rem -2rem; /*-- negative right margin compensates for extra width --*/
+}
+.hero > * { /*-- targets all direct children of .hero --*/
+  margin: 0; /*-- zeroes their margins --*/
+  padding: 0; /*-- zeroes their padding --*/
+}
+.grid-cont { /*-- styles the main grid container for media cards --*/
+  padding: 2rem 0; /*-- top and bottom padding for the grid container --*/
+  display: grid; /*-- declares this a grid container --*/
+  grid-gap: 2rem; /*-- 2rem top, right, bottom, and left gaps between items --*/
+  grid-template-columns: 1fr; /*-- by default, there is 1 column that's 1fr wide --*/
+}
+@media screen and (min-width: 550px) { /*-- at slightly larger size, there are two equal columns --*/
+  .grid-cont {grid-template-columns: repeat(2, 1fr);}
+}
+@media screen and (min-width: 768px) { /*-- still two equal columns --*/
+  .grid-cont {grid-template-columns: repeat(2, 1fr);}
+}
+@media screen and (min-width: 1280px) { /*-- next size up, there are three equal columns --*/
+  .grid-cont {grid-template-columns: repeat(3, 1fr);}
+}
+@media screen and (min-width: 1440px) { /*-- at the largest sizes, there are four equal columns --*/
+  .grid-cont {grid-template-columns: repeat(4, 1fr);}
+}
+.card { /*-- selects .card elements --*/
+  padding: 2%; /*-- a little bit of flexible space inside the card --*/
+  display: flex; /*-- card is a flex container --*/
+  flex-direction: column; /*-- flow is downward --*/
+  border-radius: 8px; /*-- curved edges --*/
+  border: 2px dashed var(--dkmid); /*-- dashed border --*/
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+.card img { /*-- selects image children of .card --*/
+  width: 100%; /*-- full width of container --*/
+  height: auto; /*-- maintain aspect ratio --*/
+  max-height: 320px; /*-- can't be too tall --*/
+  border-radius: 8px 8px 0 0; /*-- curved corners, but just on the top --*/
+}
+.card button { 
+  background-color: #300057;
+  border-color: #00ff40;
+  border-radius: 15%;/*-- selects button children of .card elements --*/
+  width: 30%; /*-- 1/3rd width of parent (the .card) --*/
+  min-width: 6rem; /*-- can't be too narrow --*/
+  margin: 2rem auto; /*-- centered it --*/
+  padding: 1rem 2rem; /*-- makes space inside the button --*/
+  cursor: pointer; /*-- changes the mouse cursor from arrow to pointer --*/
+}
+.brand{
+  font-size: 15rem;
+  background-color: #300057;
+}
+footer { /*-- just some footer styles, nothing weird --*/
+  margin-top: 2rem; /*-- adds space above --*/
+  background-color: var(--ltmid); /*-- light mid color --*/
+  padding: 1rem 2rem; /*-- inside space to match the nav --*/
+  display: flex; /*-- might as well --*/
+  height: 6rem; /*-- fixed height  --*/
+  justify-content: space-between; /*-- horizontal center --*/
+  align-items: center; /*-- vertical center --*/
+}
+footer p { /*-- targets the footer text --*/
+  width: 100%; /*-- p elements are full width of the container --*/
+  text-align: center; /*-- centers the text --*/
+  font-weight: 500; /*-- mid-weight font --*/
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: rgb(247, 0, 0);
+  font-weight: bold;
+  font-size: 70px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #000000;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: left;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  padding-left: 5em;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
