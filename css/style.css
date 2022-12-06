@@ -191,7 +191,8 @@ background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100
 @media screen and (min-width: 1440px) { /*-- at the largest sizes, there are four equal columns --*/
   .grid-cont {grid-template-columns: repeat(4, 1fr);}
 }
-.card { /*-- selects .card elements --*/
+.card { 
+  /*-- selects .card elements --*/
   padding: 2%; /*-- a little bit of flexible space inside the card --*/
   display: flex; /*-- card is a flex container --*/
   flex-direction: column; /*-- flow is downward --*/
@@ -199,7 +200,8 @@ background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100
   border: 2px dashed var(--dkmid); /*-- dashed border --*/
   background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
 }
-.card img { /*-- selects image children of .card --*/
+.card img {
+  ; /*-- selects image children of .card --*/
   width: 100%; /*-- full width of container --*/
   height: auto; /*-- maintain aspect ratio --*/
   max-height: 320px; /*-- can't be too tall --*/
@@ -337,7 +339,7 @@ footer p { /*-- targets the footer text --*/
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 8; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
@@ -352,7 +354,7 @@ footer p { /*-- targets the footer text --*/
 .modal-content {
   margin: auto;
   display: block;
-  width: 80%;
+  width: 50%;
   max-width: 700px;
 }
 
@@ -401,6 +403,7 @@ footer p { /*-- targets the footer text --*/
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
   .modal-content {
+    
     width: 100%;
   }
 }
